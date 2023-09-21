@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guessing Game</title>
+  <style>
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the Correct Number!</h1>
+  <input type="number" id="userGuess" placeholder="Enter your guess">
+  <button onclick="checkGuess()">Submit Guess</button>
+  <div class="result" id="resultDisplay"></div>
+
+  <script>
+    function checkGuess() {
+      const randomNumber = Math.floor(Math.random() * 10) + 1; // Generate a random number between 1 and 10
+      const userGuess = parseInt(document.getElementById('userGuess').value);
+
+      if (isNaN(userGuess)) {
+        document.getElementById('resultDisplay').innerHTML = 'Please enter a valid number.';
+      } else if (userGuess === randomNumber) {
+        document.getElementById('resultDisplay').innerHTML = '<img src="meat.png" alt="Meat" width="50px" height="50px">';
+      } else {
+        document.getElementById('resultDisplay').innerHTML = '<img src="leaf.png" alt="Leaf" width="50px" height="50px">';
+      }
+    }
+  </script>
+</body>
+</html>
